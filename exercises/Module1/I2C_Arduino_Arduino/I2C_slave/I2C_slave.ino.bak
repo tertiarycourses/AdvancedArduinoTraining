@@ -1,0 +1,54 @@
+// The Slave has an address of 8
+
+int LED = 13;
+int x = 0;
+
+#include <Wire.h>
+
+void setup() {
+   
+  pinMode (LED, OUTPUT); // Define the LED pin as Output
+  Wire.begin(9);                // join i2c bus with address #8
+  Wire.onReceive(receiveEvent); // register event
+  Serial.begin(9600);           // start serial for output
+}
+
+void loop() {
+  delay(100);
+  //If value received is 0 blink LED for 200 ms
+   
+  
+  
+}
+
+// function that executes whenever data is received from master
+// this function is registered as an event, see setup()
+void receiveEvent(int howMany) {
+  while (1 < Wire.available()) { // loop through all but the last
+    char c = Wire.read(); // receive byte as a character
+    //Serial.println("Character ");
+    Serial.println(c);         // print the character
+ }
+  int x = Wire.read();    // receive byte as an integer
+  //Serial.print("Integer ");
+  Serial.println(x);         // print the integer
+
+  if (int(x) == 0) {
+    
+    digitalWrite(LED, HIGH);
+    delay(200);
+    digitalWrite(LED, LOW);
+    delay(200);
+    Serial.println("LED 0");
+  }
+  //If value received is 3 blink LED for 400 ms
+  if (int(x) ==  3) {
+    digitalWrite(LED, HIGH);
+    delay(400);
+    digitalWrite(LED, LOW);
+    delay(400);
+    Serial.println("LED 3");
+  }
+ 
+}
+
