@@ -1,5 +1,5 @@
 # Advanced Arduino Training
-## by [Tertiary Infotech Pte. Ltd](https://www.tertiarycourses.com.sg/)
+## by [Tertiary Courses](https://www.tertiarycourses.com.sg/)
 
 These are the exercise files used for [Advanced Arduino Training](https://www.tertiarycourses.com.sg/advanced-arduino-training.html) course. 
 
